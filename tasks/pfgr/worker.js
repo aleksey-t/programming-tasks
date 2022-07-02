@@ -1,68 +1,30 @@
 onmessage = function (e) {
-    let тройкиЧисел = [];
+    let triplets = [];
 
-    function проверитьПоТеоремеПифагора(a, b, c) {
-        if (a === b === c) {
-            return false;
-        }
+    function findTriplets(limit) {
+        let a, b, c;
 
-        let гипотенуза = a;
-        let катет_1 = b;
-        let катет_2 = c;
+        for (a = 2; a <= limit; a += 1) {
+            for (b = a; b <= limit; b += 1) {
+                let cSquared = a * a + b * b;
 
-        if (b > a && b > c) {
-            гипотенуза = b;
-            катет_1 = a;
-            катет_2 = c;
-        }
+                c = Math.sqrt(cSquared);
 
-        if (c > a && c > b) {
-            гипотенуза = c;
-            катет_1 = a;
-            катет_2 = c;
-        }
-
-        let квадрат_гипотенузы = гипотенуза * гипотенуза;
-        let сумма_квадратов_катетов = катет_1 * катет_1 + катет_2 * катет_2;
-
-        return квадрат_гипотенузы === сумма_квадратов_катетов;
-    }
-
-    function убратьДубликатыИзМассиваСМассивами(массив) {
-        let множествоИзСтрок = new Set();
-
-        for (let i = 0; i < массив.length; i += 1) {
-            множествоИзСтрок.add(массив[i].toString());
-        }
-
-        let массивИзСтрок = Array.from(множествоИзСтрок);
-        let массивИзМассивов = массивИзСтрок.map(строка => строка.split(',').map(j => +j));
-
-        return массивИзМассивов;
-    }
-
-    function искатьПифагоровыТройки(лимит) {
-        for (let a = 2; a <= лимит; a += 1) {
-            for (let b = 2; b <= лимит; b += 1) {
-                for (let c = 2; c <= лимит; c += 1) {
-                    if (проверитьПоТеоремеПифагора(a, b, c)) {
-                        тройкиЧисел.push([a, b, c].sort((i, j) => i - j));
-                    }
+                if (Number.isInteger(c)) {
+                    triplets.push([a, b, c]);
                 }
+
                 postMessage({
-                    progress: Math.floor(a / (лимит / 100)),
-                    percent: Math.floor(a / (лимит / 100)),
+                    percent: Math.floor(a / (limit / 100)),
                 });
             }
         }
 
-        let результат = убратьДубликатыИзМассиваСМассивами(тройкиЧисел);
-
         postMessage({
-            result: результат,
+            result: triplets,
             percent: 100,
         });
     }
 
-    искатьПифагоровыТройки(e.data);
+    findTriplets(e.data);
 }
