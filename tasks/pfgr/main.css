@@ -1,0 +1,54 @@
+body {
+    background: #eee;
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#root {
+    height: 500px;
+    width: 200px;
+    overflow-y: scroll;
+    border: solid 1px grey;
+    padding: 1rem;
+    flex: 1;
+}
+
+.block {
+    margin: 1rem 0;
+}
+
+.warning {
+    color: red;
+}
+
+.triplet {
+    margin: 10px 0;
+}
+
+.triplet span {
+    margin-left: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+.triplet span:hover{
+    background: #eee;
+    outline: solid 1px gray;
+    padding: 10px 10px 10px 5px;
+    z-index: 99999;
+    margin: 0;
+}
+
+.canvas {
+    overflow-x: scroll;
+    flex: 2;
+}
+
+.flex {
+    display: flex;
+}

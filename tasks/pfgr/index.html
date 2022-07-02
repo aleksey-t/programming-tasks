@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="container" id="container">
+    <h1>Пифагоровы тройки</h1>
+    <div class="block">
+        Лимит:
+        <select name="limit" id="limit">
+            <option>10</option>
+            <option>50</option>
+            <option>100</option>
+            <option>250</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+        </select>
+        <span id="warning" class="warning"></span>
+        <button id="start">искать</button>
+    </div>
+    <div id="message"></div>
+    <div id="result-message"></div>
+    <progress id="progress" max="100" value="0"></progress>
+    <div class="flex">
+        <div id="root"></div>
+        <div class="canvas">
+            <canvas></canvas>
+        </div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

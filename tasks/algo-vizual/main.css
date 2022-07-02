@@ -1,0 +1,25 @@
+
+.block {
+    margin: 1rem 0;
+}
+
+.warning {
+    color: red;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.canvas {
+    border: solid 1px grey;
+    padding: 1rem;
+    margin: 1rem;
+    width: 800px;
+    cursor: pointer;
+}
+
+.canvas:hover {
+    box-shadow: 5px 0 5px grey;
+}
